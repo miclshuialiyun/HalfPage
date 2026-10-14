@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>半页 — 只写半页的私密日记</title>
+<meta name="description" content="半页是一款本地优先的极简私密日记：生物识别门禁、照片加密存储、心情与日历回顾，无账号、无广告、无第三方统计。一次买断，永久有效。">
+<style>
+  :root{
+    --brand:#16233A;
+    --brand-mid:#1E2C47;
+    --brand-light:#2E4066;
+    --gold:#A8804A;
+    --gold-light:#C9A227;
+    --ink:#1d1d1f;
+    --muted:#6b7280;
+    --line:#e6e1d7;
+    --bg:#ffffff;
+    --paper:#FCFAF6;
+    --soft:#F4F1EA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color:var(--ink);line-height:1.75;background:var(--bg);-webkit-font-smoothing:antialiased;
+  }
+  header{
+    background:linear-gradient(160deg,var(--brand-mid) 0%,var(--brand) 55%,#0C1320 100%);
+    color:#fff;padding:64px 20px 56px;text-align:center;
+  }
+  header .logo{display:inline-flex;align-items:center;gap:12px;font-size:26px;font-weight:800;letter-spacing:1px;}
+  header .logo .dot{width:16px;height:16px;border-radius:4px;background:var(--gold-light);box-shadow:0 0 0 5px rgba(201,162,39,.18);}
+  header h1{font-family:"Songti SC","Source Han Serif SC",Georgia,serif;font-size:40px;margin-top:18px;font-weight:900;letter-spacing:2px;}
+  header p.tag{opacity:.94;margin-top:10px;font-size:17px;}
+  header p.sub{opacity:.72;margin-top:8px;font-size:14px;letter-spacing:.5px;}
+  nav{
+    background:var(--soft);border-bottom:1px solid var(--line);
+    padding:12px 20px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;
+    position:sticky;top:0;z-index:10;
+  }
+  nav a{text-decoration:none;color:var(--brand);font-weight:600;font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid transparent;}
+  nav a:hover{background:#fff;border-color:var(--line);}
+  nav a.active{background:var(--brand);color:#fff;}
+  main{max-width:920px;margin:0 auto;padding:44px 20px 60px;}
+  section{margin-bottom:48px;}
+  h2{font-size:24px;margin:0 0 18px;color:var(--brand);text-align:center;}
+  .lead{text-align:center;color:var(--muted);max-width:660px;margin:0 auto 30px;font-size:15px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px;}
+  .card .ico{font-size:24px;}
+  .card h3{font-size:17px;margin:8px 0 6px;color:var(--brand);}
+  .card p{font-size:14px;color:#4b5563;}
+  .shots{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .shots img{width:190px;border-radius:20px;border:1px solid var(--line);box-shadow:0 10px 26px rgba(22,35,58,.10);}
+  .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+  .principle{border:1px solid var(--line);border-radius:18px;padding:22px;text-align:center;background:#fff;}
+  .principle .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:var(--gold);color:#fff;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px;}
+  .principle h3{font-size:16px;color:var(--brand);margin-bottom:6px;}
+  .principle p{font-size:14px;color:#4b5563;}
+  .compare{width:100%;border-collapse:collapse;font-size:14px;}
+  .compare th,.compare td{border:1px solid var(--line);padding:10px 12px;text-align:left;}
+  .compare th{background:var(--soft);color:var(--brand);font-weight:700;}
+  .compare td:first-child{color:var(--muted);width:34%;}
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:22px;text-align:center;background:#fff;}
+  .plan.feature{border-color:var(--gold);box-shadow:0 8px 24px rgba(168,128,74,.14);}
+  .plan .name{font-weight:700;color:var(--brand);}
+  .plan .price{font-size:30px;font-weight:900;color:var(--gold);margin:8px 0 2px;}
+  .plan .price small{font-size:13px;font-weight:600;color:var(--muted);}
+  .plan .note{font-size:13px;color:var(--muted);}
+  .cta{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;padding:14px 30px;border-radius:999px;font-size:16px;}
+  .cta-wrap{text-align:center;margin-top:18px;}
+  .note-line{text-align:center;color:var(--muted);font-size:13px;margin-top:12px;}
+  .privacy-box{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:14px;padding:20px;font-size:14px;color:#4b5563;}
+  .privacy-box li{margin-left:18px;margin-top:6px;}
+  footer{background:var(--brand);color:#cbd4e4;text-align:center;padding:30px 20px;font-size:13px;line-height:1.9;}
+  footer a{color:#fff;text-decoration:underline;}
+  footer .links{margin:8px 0;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><span class="dot"></span>半页</div>
+  <h1>只写半页的私密日记</h1>
+  <p class="tag">打开就写，写完就锁上</p>
+  <p class="sub">本地优先 · 生物识别门禁 · 零广告 · 零账号 · 一次买断</p>
+</header>
+
+<nav>
+  <a href="index.html" class="active">产品主页</a>
+  <a href="support.html">技术支持</a>
+  <a href="privacy.html">隐私政策</a>
+  <a href="terms.html">使用条款</a>
+</nav>
+
+<main>
+  <section>
+    <p class="lead">半页是一款把「减法」做到底的日记工具。它不要求你写满一页，不逼你连续打卡，不上传你的任何内容。你只需要在想到的时候打开它，写下半页，然后锁上。</p>
+  </section>
+
+  <section>
+    <h2>核心能力</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="ico">✍️</div>
+        <h3>极简编辑器</h3>
+        <p>标题、正文、心情、照片，四件事就能写完一篇。没有复杂工具栏，没有打卡压力。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔒</div>
+        <h3>生物识别门禁</h3>
+        <p>用 Face ID / Touch ID 或设备密码才能打开。切到后台超过设定时长会自动重新上锁。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🖼️</div>
+        <h3>照片加密存储</h3>
+        <p>插入的照片以 AES-GCM 加密后存储在 App 沙盒内，并启用系统文件保护。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🌤️</div>
+        <h3>心情与天气</h3>
+        <p>六种心情、六种天气，图标与文字并存，不靠颜色单独传达信息，色觉障碍同样可用。</p>
+      </div>
+      <div class="card">
+        <div class="ico">📅</div>
+        <h3>日历与时间轴</h3>
+        <p>按月回看，每天的心情在日历上留下一个色点。写了几天、什么时候断过，一目了然。</p>
+      </div>
+      <div class="card">
+        <div class="ico">📊</div>
+        <h3>本地统计回顾</h3>
+        <p>连续天数、最长连续、7 日写作天数、心情分布与 12 周热力图，全部在设备上计算。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🔍</div>
+        <h3>全文检索</h3>
+        <p>标题、正文、标签一起搜，本地即时返回，不需要联网、不上传关键词。</p>
+      </div>
+      <div class="card">
+        <div class="ico">📝</div>
+        <h3>Markdown 纯文本模式</h3>
+        <p>喜欢纯文本的人可以把编辑器切成等宽字体与 Markdown 预览，标题、列表、引用、待办都能渲染。</p>
+      </div>
+      <div class="card">
+        <div class="ico">📤</div>
+        <h3>数据可导出</h3>
+        <p>Markdown、纯文本、JSON 备份三种格式，随时导出、随时带走，换设备导入即可继续写。</p>
+      </div>
+      <div class="card">
+        <div class="ico">🗑️</div>
+        <h3>删除可反悔</h3>
+        <p>删除的日记先进「最近删除」，30 天内可以恢复；也可以随时彻底清空。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>界面一瞥</h2>
+    <p class="lead">四个界面构成完整闭环：写下 → 标记心情 → 日历回看 → 回顾趋势。</p>
+    <div class="shots">
+      <img src="shots/01-首页-日记列表与连续记录.png" alt="首页-日记列表与连续记录" loading="lazy">
+      <img src="shots/02-编辑器-心情与私密记录.png" alt="编辑器-心情与私密记录" loading="lazy">
+      <img src="shots/03-日历-每日心情打点.png" alt="日历-每日心情打点" loading="lazy">
+      <img src="shots/04-回顾-连续天数与心情分布.png" alt="回顾-连续天数与心情分布" loading="lazy">
+    </div>
+    <p class="note-line">截图取自 iPhone 版本，内容为虚构示例数据。</p>
+  </section>
+
+  <section>
+    <h2>我们的三条原则</h2>
+    <div class="principles">
+      <div class="principle">
+        <div class="num">1</div>
+        <h3>不上传</h3>
+        <p>没有账号、没有服务器、没有第三方统计 SDK。半页不发起任何内容上传请求。</p>
+      </div>
+      <div class="principle">
+        <div class="num">2</div>
+        <h3>不打扰</h3>
+        <p>没有广告、没有推送营销、没有诱导分享。写与不写，都由你自己决定。</p>
+      </div>
+      <div class="principle">
+        <div class="num">3</div>
+        <h3>一次买断</h3>
+        <p>没有订阅、不会自动续费。免费版可写 30 篇，永久版解锁后不再受限。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>隐私怎么做的，说清楚</h2>
+    <div class="privacy-box">
+      <p>我们不使用「无法被任何人读取」这类无法兑现的说法。半页 v1.0 的隐私保护由三部分组成：</p>
+      <ul>
+        <li><strong>门禁</strong>：开启后需通过 Face ID / Touch ID 或设备密码才能进入 App 内容；</li>
+        <li><strong>系统文件保护</strong>：日记数据库文件设置为「首次解锁后才可访问」，锁屏状态下不可读；</li>
+        <li><strong>照片加密</strong>：照片以 AES-GCM 加密后写入 App 沙盒，密钥保存在本机钥匙串、不随 iCloud 钥匙串同步。</li>
+      </ul>
+      <p style="margin-top:10px;">需要特别说明：日记正文由系统文件保护与应用沙盒保护，<strong>并未做逐条端到端加密</strong>。如果你的威胁模型更严格，建议同时开启门禁并关闭 iCloud 备份中的本 App 数据。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>与常见日记应用的区别</h2>
+    <table class="compare">
+      <tr><th>对比项</th><th>半页</th></tr>
+      <tr><td>账号</td><td>不需要注册，没有服务器账号</td></tr>
+      <tr><td>社交</td><td>完全没有广场、关注、评论、私信</td></tr>
+      <tr><td>付费</td><td>一次性买断，无订阅、无自动续费</td></tr>
+      <tr><td>数据存放</td><td>仅在本机 App 沙盒内</td></tr>
+      <tr><td>统计</td><td>本地计算，无第三方分析 SDK</td></tr>
+      <tr><td>导出</td><td>Markdown / 纯文本 / JSON，全量免费导出</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>永久版</h2>
+    <p class="lead">免费版可以写 30 篇，功能完整、随时可导出。永久版解锁不限篇数与全部主题。</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="name">免费版</div>
+        <div class="price">¥0</div>
+        <div class="note">最多 30 篇 · 完整功能 · 全量导出</div>
+      </div>
+      <div class="plan feature">
+        <div class="name">永久版</div>
+        <div class="price">¥18<small> 一次性</small></div>
+        <div class="note">不限篇数 · 全部主题 · 永久有效</div>
+      </div>
+    </div>
+    <p class="note-line">付款由 Apple 处理：确认购买后从你的 Apple ID 账户扣费，一次购买永久有效，不存在自动续费。实际价格以 App Store 结算页显示为准。已写内容在任何情况下都可以阅读、导出与删除。完整条款见 <a href="terms.html" style="color:var(--gold);">使用条款</a>。</p>
+  </section>
+
+  <section>
+    <h2>立即体验</h2>
+    <p class="lead">在 App Store 搜索「半页」，或点击下方按钮前往查看。支持 iPhone。</p>
+    <div class="cta-wrap">
+      <!-- TODO：拿到 App Store 应用 ID 后，把搜索链接替换为 https://apps.apple.com/cn/app/idXXXXXXXXXX -->
+      <a class="cta" href="https://apps.apple.com/cn/search?term=%E5%8D%8A%E9%A1%B5">在 App Store 查看</a>
+    </div>
+    <p class="note-line">当前按钮跳转到 App Store 搜索结果页；应用上架后请把链接替换为真实的应用页面地址。</p>
+  </section>
+</main>
+
+<footer>
+  半页 — 只写半页的私密日记<br>
+  <div class="links">
+    <a href="index.html">产品主页</a> · <a href="support.html">技术支持</a> · <a href="privacy.html">隐私政策</a> · <a href="terms.html">使用条款</a>
+  </div>
+  技术支持：<a href="mailto:miclshui@gmail.com">miclshui@gmail.com</a><br>
+  © 2026 半页　保留所有权利<br>
+  软件标识：com.yourdevname.halfpage<br>
+  <!-- 中国大陆区上架需完成工信部 App 备案后回填备案号 -->
+  <span>备案信息待补充（中国大陆区上架前需完成工信部 App 备案）</span>
+</footer>
+</body>
+</html>

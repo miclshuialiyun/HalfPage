@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术支持 — 半页</title>
+<style>
+  :root{--brand:#16233A;--gold:#A8804A;--muted:#6b7280;--line:#e6e1d7;--paper:#FCFAF6;--soft:#F4F1EA;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#1d1d1f;line-height:1.8;background:#fff;-webkit-font-smoothing:antialiased;}
+  header{background:linear-gradient(160deg,#1E2C47,#16233A 60%,#0C1320);color:#fff;padding:44px 20px 36px;text-align:center;}
+  header h1{font-family:"Songti SC",Georgia,serif;font-size:30px;letter-spacing:1px;}
+  header p{opacity:.8;font-size:14px;margin-top:8px;}
+  nav{background:var(--soft);border-bottom:1px solid var(--line);padding:12px 20px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;position:sticky;top:0;}
+  nav a{text-decoration:none;color:var(--brand);font-weight:600;font-size:14px;padding:6px 14px;border-radius:999px;}
+  nav a.active{background:var(--brand);color:#fff;}
+  main{max-width:820px;margin:0 auto;padding:40px 20px 64px;}
+  h2{font-size:20px;color:var(--brand);margin:34px 0 12px;}
+  h2:first-of-type{margin-top:0;}
+  h3{font-size:16px;color:var(--brand);margin:22px 0 6px;}
+  p,li{font-size:14.5px;color:#374151;}
+  ul{margin-left:20px;}
+  .qa{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;}
+  .qa h3{margin-top:0;}
+  .contact{background:var(--brand);color:#fff;border-radius:16px;padding:22px;text-align:center;}
+  .contact a{color:#F0D9A8;font-weight:700;text-decoration:none;}
+  footer{background:var(--brand);color:#cbd4e4;text-align:center;padding:26px 20px;font-size:13px;line-height:1.9;}
+  footer a{color:#fff;}
+</style>
+</head>
+<body>
+<header>
+  <h1>技术支持</h1>
+  <p>半页 · 只写半页的私密日记</p>
+</header>
+<nav>
+  <a href="index.html">产品主页</a>
+  <a href="support.html" class="active">技术支持</a>
+  <a href="privacy.html">隐私政策</a>
+  <a href="terms.html">使用条款</a>
+</nav>
+<main>
+  <div class="contact">
+    <p style="font-size:15px;">遇到问题？直接发邮件给我们</p>
+    <p style="font-size:20px;margin-top:6px;"><a href="mailto:miclshui@gmail.com">miclshui@gmail.com</a></p>
+    <p style="font-size:13px;opacity:.8;margin-top:8px;">我们通常在 2 个工作日内回复。请在邮件中注明设备型号与系统版本，便于定位问题。</p>
+  </div>
+
+  <h2>常见问题</h2>
+
+  <div class="qa">
+    <h3>Q1. 忘记门禁验证方式了，日记会被清空吗？</h3>
+    <p>不会。半页没有「忘记密码即清空数据」的逻辑。门禁使用的是系统提供的验证方式（Face ID / Touch ID 或设备密码），因此只要你能解锁这台 iPhone，就能打开半页。如果系统本身无法验证，请联系我们，不要直接删除 App —— 删 App 会一并删除本机数据。</p>
+  </div>
+
+  <div class="qa">
+    <h3>Q2. 换手机后日记怎么迁移？</h3>
+    <p>在旧设备打开「设置 → 数据 → 导出全部」，选择 JSON 备份，把文件保存到「文件」App 或任意云盘；在新设备打开「设置 → 数据 → 导入备份」，选择该文件即可。导入时可选择「覆盖同 ID 记录」或「追加为副本」。<strong>照片不随备份迁移</strong>（备份文件只包含文字内容），如需保留照片请在旧设备上单独留存。</p>
+  </div>
+
+  <div class="qa">
+    <h3>Q3. 数据存在哪里？会丢吗？</h3>
+    <p>全部保存在这台设备的 App 沙盒内。我们不做自动云同步，因此：卸载 App 会删除本机数据；建议定期导出备份，并把备份文件放到你信任的位置（如 iCloud Drive、电脑）。</p>
+  </div>
+
+  <div class="qa">
+    <h3>Q4. 为什么没有自动云同步？</h3>
+    <p>出于隐私定位，v1.0 采用「本地优先 + 显式备份」的方案：内容不由我们上传到任何服务器，换设备由你主动导出导入。这样做的代价是多一步手动操作，收益是你不必相信任何第三方会保管好你的日记。</p>
+  </div>
+
+  <div class="qa">
+    <h3>Q5. 免费版有什么限制？付费后我的内容会变吗？</h3>
+    <p>免费版最多可写 30 篇，其余功能（门禁、照片、日历、回顾、导出）全部可用。达到上限后不会删除或隐藏任何内容，只是新增时会提示解锁永久版。永久版为一次性买断，不存在订阅与自动续费。</p>
+  </div>
+
+  <div class="qa">
+    <h3>Q6. 换了新手机，永久版还要再买一次吗？</h3>
+    <p>不用。进入「设置 → 解锁永久版 → 恢复购买」，使用当初购买时的同一个 Apple ID 即可恢复，无需重复付费。恢复购买需要联网。</p>
+  </div>
+
+  <div class="qa">
+    <h3>Q7. 怎么申请退款？</h3>
+    <p>所有付款由 Apple 处理，退款需通过 Apple 渠道申请：访问 <a href="https://reportaproblem.apple.com" target="_blank" rel="nofollow">reportaproblem.apple.com</a>，或在 iPhone「设置 → Apple ID → 购买记录」中找到对应订单申请。退款由 Apple 审核决定，与我们无关；无论退款是否通过，你已写的内容都不会被删除或锁定。</p>
+  </div>
+
+  <div class="qa">
+    <h3>Q8. 误删了日记还能找回吗？</h3>
+    <p>可以。删除的日记会进入「设置 → 数据 → 最近删除」，保留 30 天，期间可随时恢复。也可以在「最近删除」里手动清空，清空后无法恢复。</p>
+  </div>
+
+  <div class="qa">
+    <h3>Q9. 支持 Markdown 吗？</h3>
+    <p>支持。在「设置 → 外观」打开「Markdown 纯文本模式」，正文会使用等宽字体，并可切换到预览，渲染标题、列表、引用、待办、粗体与代码。</p>
+  </div>
+
+  <div class="qa">
+    <h3>Q10. 支持 iPad、Apple Watch 或 Mac 吗？</h3>
+    <p>当前版本支持 iPhone（iOS 17 及以上）。iPad 与桌面端在后续版本的规划中，欢迎邮件告诉我们你的需求优先级。</p>
+  </div>
+
+  <h2>反馈建议</h2>
+  <p>如果你希望某个功能被优先实现，或发现任何异常（如崩溃、显示错位、导出失败），欢迎发邮件到 <a href="mailto:miclshui@gmail.com">miclshui@gmail.com</a>。邮件中附上截图与复现步骤会极大加快处理速度。</p>
+</main>
+<footer>
+  半页 — 只写半页的私密日记<br>
+  <a href="index.html">产品主页</a> · <a href="support.html">技术支持</a> · <a href="privacy.html">隐私政策</a> · <a href="terms.html">使用条款</a><br>
+  © 2026 半页　保留所有权利
+</footer>
+</body>
+</html>
